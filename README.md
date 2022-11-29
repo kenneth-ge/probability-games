@@ -41,7 +41,7 @@ And here's my version/formalization of this proof:
 * QED
 
 Here's some more commentary/proof from [Ananth Vivekanand](https://github.com/AnanthVivekanand):
-* where x is the weightage of some outcome on the coin, we choose a y to maximize “xy + (1-x)(1-y)” where y represents the probability we choose outcome x
+* Where x is the weightage of some outcome on the coin, we choose a y to maximize “xy + (1-x)(1-y)” where y represents the probability we choose outcome x
 * At x = 0.9, we maximize the expression when y = 1, so optimal strategy is to always choose the most probable outcome
 * But something interesting happens when we slide x
 * Since the line is “straight”, the value of y that maximizes the expression is either 0 or 1
