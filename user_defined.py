@@ -1,4 +1,4 @@
 from math import *
 
 def f(p):
-    return sqrt(p)
+    return p ** (1/2)

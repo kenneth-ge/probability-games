@@ -75,4 +75,4 @@ for i in range(num_samples):
         num_wrong += 1
 
 print('percent right' , (num_right / (num_right + num_wrong)))
-print('calculated probability', max(pA, pB))
+print('calculated probability', pB * f(pB) + pA * (1 - f(pB)))
