@@ -19,6 +19,6 @@ But, we can do even better by simply guessing the more likely outcome. In other 
 But, is this the best we can do? If so, why?
 
 # The Game!
-In this repository, you will see a file called ``user_defined.py``. This is where you get to define your own function, f(p), to try to see if you can beat the approach described above! Basically, given that p is the probability of the more likely outcome, you create a function to return the chance that you choose this outcome. Basically, the probability that your answer agrees with the weighted coin is p * f(p) + (1 - p) * (1 - f(p)). And, given this, you want to see if you can somehow maximize this function to beat f(p) = 1 at *any* probability p. 
+In this repository, you will see a file called ``user_defined.py``. This is where you get to define your own function, f(p), to try to see if you can beat the approach described above! Basically, given that p is the probability of the more likely outcome, you create a function to return the chance that you choose this outcome. I.e., the probability that your answer agrees with the weighted coin is p * f(p) + (1 - p) * (1 - f(p)). And, given this, you want to see if you can somehow maximize this function to beat f(p) = 1 at *any* probability p -- even if it doesn't beat f(p) = 1 for all p ∈ [0.5, 1]. 
 
 If you find a function ``f(p)`` that can beat our current best approach (just choosing the more likely outcome, i.e. f(p) = 1), pull requests are certainly welcome! My mind will be blown, and you will forever have the honor of having rocked my world. 
