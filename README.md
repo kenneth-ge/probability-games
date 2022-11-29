@@ -1,5 +1,5 @@
 # Probability Games
-## Question: given that we know the weights on a weighted coin, how good can we get at guessing the outcome?
+## Question: given that we know the weights on a weighted coin, how good can we get at guessing the outcome? [UPDATE: the answer is solved! Read below to find out more.]
 
 # Inspiration
 I was reading an article today that talked about how people were really bad at guessing a certain binary thing (won't go into the details of what that thing is lol). In fact, the article specifically said that people did no better than a coin flip. 
@@ -22,3 +22,20 @@ But, is this the best we can do? If so, why?
 In this repository, you will see a file called ``user_defined.py``. This is where you get to define your own function, f(p), to try to see if you can beat the approach described above! Basically, given that p is the probability of the more likely outcome, you create a function to return the chance that you choose this outcome. I.e., the probability that your answer agrees with the weighted coin is p * f(p) + (1 - p) * (1 - f(p)). And, given this, you want to see if you can somehow maximize this function to beat f(p) = 1 at *any* probability p -- even if it doesn't beat f(p) = 1 for all p ∈ [0.5, 1]. 
 
 If you find a function ``f(p)`` that can beat our current best approach (just choosing the more likely outcome, i.e. f(p) = 1), pull requests are certainly welcome! My mind will be blown, and you will forever have the honor of having rocked my world. 
+
+# The Answer
+Alright, so it turns out we actually have an answer! And the answer is... f(p) = 1 is the best we can do. Here's an explanation/proof as to why by Luke Reynolds: 
+
+* WLOG, assume the it’s more likely to return true than false. Ie p>=0.5 
+* Then by definition, if you predict “true” then you’ll be right with probability p >= 0.5
+* And if you guys “false” you’ll be right with probability p<= 0.5
+* So always better (if not equal) to choose true
+
+And here's my version/formalization of this proof:
+* Let f(p) = 1 - x. This way, we can reframe the question so that we start by always guessing the more likely outcome, and we simply adjust this probability by x. 
+* So, that means our new probability of being right is p * (1 - x) + (1 - p) * x. 
+* This means we've reduced our total probability of being right by x * p, but we increase our probability of being right by x * (1 - p). This is compared to f(p) = 1, where our probability of being right is equal to p. Intuitively, this should make sense, but here is some algebra to prove it: our new probability of being right = p * (1 - x) + (1 - p) * x = p - p * x + (1 - p) * x. Subtracting p, we get - p * x + (1 - p) * x. 
+* But, we also know that p > 0.5 and therefore (1 - p) < p. So, x * (1 - p) < x * p. 
+* So, the tradeoff never works out for us because - p * x + (1 - p) * x < 0. I.e., it is never optimal to make x > 0
+* Therefore, f(p) = 1 - 0 = 1 is always optimal. 
+* QED
